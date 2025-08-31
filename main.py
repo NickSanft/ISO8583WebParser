@@ -361,8 +361,8 @@ HTML_TEMPLATE = """
             const fieldLenInput = document.getElementById('field-len');
 
             // Example data
-            hexInput.value = "31313030400000000000000031323334353637383930313233343536373839";
-            formatEditor.value = `2: n-19`;
+            hexInput.value = "31313030700000000000000031373132333435363738393031323334353637323234343535303030303030303030303234";
+            formatEditor.value = `2: n-LLVAR \\n3: n-6 \\n4: n-12`;
 
             // --- Converter Logic ---
             binaryInput.addEventListener('input', (e) => {
