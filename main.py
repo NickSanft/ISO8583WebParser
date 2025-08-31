@@ -3,7 +3,7 @@ import os
 from flask import Flask, render_template_string
 
 # Create a Flask application instance
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='', static_folder='output')
 
 OUTPUT_DIR = 'output'
 
@@ -43,6 +43,7 @@ HTML_TEMPLATE = """
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/fontawesome-free-6.4.0-web/css/all.min.css">
 </head>
 <body class="h-full text-gray-200 antialiased">
     <div id="notification" class="fixed top-5 right-5 bg-red-600 text-white py-2 px-4 rounded-lg shadow-lg transition-opacity duration-300 opacity-0 z-50"></div>
@@ -460,6 +461,20 @@ HTML_TEMPLATE = """
 
         });
     </script>
+
+<footer id="contact" class="py-24 bg-gray-100 dark:bg-gray-800 fade-in-section">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="font-heading text-3xl font-bold mb-4">Contact</h2>
+            <p class="mb-6 text-[var(--color-text-secondary)]">Feel free to connect with me!</p>
+            <div class="flex justify-center space-x-6">
+                <a href="https://github.com/NickSanft" aria-label="GitHub" class="text-[var(--color-text-primary)] hover:text-[var(--color-accent)] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 rounded-full"><i class="fab fa-github fa-2x"></i></a>
+                <a href="https://www.linkedin.com/in/nicholas-sanft-25b78889" aria-label="LinkedIn" class="text-[var(--color-text-primary)] hover:text-[var(--color-accent)] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 rounded-full"><i class="fab fa-linkedin fa-2x"></i></a>
+                <a href="https://divora.bandcamp.com" aria-label="Bandcamp" class="text-[var(--color-text-primary)] hover:text-[var(--color-accent)] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 rounded-full"><i class="fab fa-bandcamp fa-2x"></i></a>
+                <a href="https://ko-fi.com/nicksanft" aria-label="Ko-fi" class="text-[var(--color-text-primary)] hover:text-[var(--color-accent)] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 rounded-full"><i class="fas fa-coffee fa-2x"></i></a>
+            </div>
+            <p class="mt-8 text-sm text-gray-500 dark:text-gray-400">© 2013 - 2025 Nick Sanft</p>
+        </div>
+    </footer>
 </body>
 </html>
 """
