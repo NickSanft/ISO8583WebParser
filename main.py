@@ -1,7 +1,11 @@
+import os
+
 from flask import Flask, render_template_string
 
 # Create a Flask application instance
 app = Flask(__name__)
+
+OUTPUT_DIR = 'output'
 
 # Define the HTML template with embedded CSS (Tailwind) and JavaScript for the parser
 # This single string contains the entire frontend application.
@@ -460,6 +464,10 @@ HTML_TEMPLATE = """
 </html>
 """
 
+def write_html():
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    with open(os.path.join(OUTPUT_DIR, 'index.html'), 'w', encoding='utf-8') as f:
+        f.write(HTML_TEMPLATE)
 
 # Define the main route for the web application
 @app.route('/')
@@ -473,7 +481,7 @@ def index():
 
 # Run the Flask application
 if __name__ == '__main__':
-    # Running in debug mode is useful for development.
-    # For production, use a proper WSGI server like Gunicorn or uWSGI.
+    write_html()
+    print("index.html generated in ./output folder. Open in browser to play or visit http://127.0.0.1:5000")
     app.run(debug=True, port=5001)
 
